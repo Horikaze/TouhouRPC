@@ -1,4 +1,4 @@
-module;
+﻿module;
 
 #include <Windows.h>
 #include <memoryapi.h>
@@ -170,12 +170,12 @@ export {
 
     string TouhouBase::getStageName() const {
         if (stage <= 6) {
-            string name = "Stage ";
+            string name = "Etap ";
             name.append(to_string(stage));
             return name;
         }
         else {
-            return "Extra Stage";
+            return "Extra ";
         }
     }
 
@@ -191,26 +191,26 @@ export {
             case GameState::MainMenu:
             {
                 switch (state.mainMenuState) {
-                    case MainMenuState::TitleScreen: name = "On the title screen"; break;
+                    case MainMenuState::TitleScreen: name = "Na ekranie głównym"; break;
                     case MainMenuState::GameStart:
-                    case MainMenuState::GameStart_Custom: name = "Preparing to play"; break;
-                    case MainMenuState::ExtraStart: name = "Preparing to play Extra"; break;
-                    case MainMenuState::StagePractice: name = "Selecting a stage to practice"; break;
-                    case MainMenuState::SpellPractice: name = "Selecting a spell to practice"; break;
-                    case MainMenuState::Replays: name = "Selecting a replay"; break;
-                    case MainMenuState::PlayerData: name = "Viewing player data"; break;
-                    case MainMenuState::Achievements: name = "Viewing achievements"; break;
-                    case MainMenuState::AbilityCards: name = "Viewing ability cards"; break;
-                    case MainMenuState::MusicRoom: name = "In the music room:"; break; // game info will specify track.
-                    case MainMenuState::Options: name = "Changing options"; break;
-                    case MainMenuState::Manual: name = "Viewing the manual"; break;
+                    case MainMenuState::GameStart_Custom: name = "Przygotowanie do gry"; break;
+                    case MainMenuState::ExtraStart: name = "Przygotowanie do gry Extra"; break;
+                    case MainMenuState::StagePractice: name = "Wybieranie etapu do ćwiczenia"; break;
+                    case MainMenuState::SpellPractice: name = "Wybieranie zaklęcia do ćwiczenia"; break;
+                    case MainMenuState::Replays: name = "Wybieranie powtórki"; break;
+                    case MainMenuState::PlayerData: name = "Przeglądanie danych gracza"; break;
+                    case MainMenuState::Achievements: name = "Przeglądanie osiągnięć"; break;
+                    case MainMenuState::AbilityCards: name = "Przeglądanie kart umiejętności"; break;
+                    case MainMenuState::MusicRoom: name = "Pokój muzyczny:"; break; // game info will specify track.
+                    case MainMenuState::Options: name = "Zmienianie ustawień"; break;
+                    case MainMenuState::Manual: name = "Przeglądanie instrukcji"; break;
                 }
                 break;
             }
 
             case GameState::GameOver:
             {
-                name = "Game over";
+                name = "Koniec gry";
                 break;
             }
 
@@ -218,7 +218,7 @@ export {
             {
                 // Scene-based games: Completion of a scene
                 name = getStageName();
-                name.append(" completed!");
+                name.append(" ukończony!");
                 break;
             }
 
@@ -226,34 +226,34 @@ export {
             {
                 // Scene-based games: Failing completion of a scene
                 name = getStageName();
-                name.append(" failed...");
+                name.append(" przegrany...");
                 break;
             }
 
             case GameState::Ending:
             case GameState::StaffRoll:
             {
-                name = "Cleared with ";
+                name = "Ukończono z ";
                 name.append(createFormattedScore());
-                name.append(" points");
+                name.append(" punktów");
                 break;
             }
 
             case GameState::SpellPractice:
             {
-                name = "Practicing a spell:"; // game info will specify spell.
+                name = "Ćwiczenie zaklęcia:"; // game info will specify spell.
                 break;
             }
 
             case GameState::WatchingReplay:
             {
-                name = "Watching a replay";
+                name = "Oglądanie powtórki";
                 break;
             }
 
             case GameState::StagePractice:
             {
-                name = "Practicing ";
+                name = "Ćwiczenie ";
                 name.append(getStageName());
                 break;
             }
@@ -316,9 +316,9 @@ export {
 
             case GameState::Completed:
             {
-                info = "Cleared with ";
+                info = "Ukończono z ";
                 info.append(createFormattedScore());
-                info.append(" points");
+                info.append(" punktów");
                 break;
             }
 
@@ -339,14 +339,14 @@ export {
                     }
                     case StageState::Midboss:
                     {
-                        info = "Fighting ";
+                        info = "Walka z ";
                         info.append(getMidbossName());
                         break;
                     }
 
                     case StageState::Boss:
                     {
-                        info = "Fighting ";
+                        info = "Walka z ";
                         info.append(getBossName());
                         break;
                     }
@@ -630,7 +630,7 @@ export {
         icon.clear(), text.clear();
         if (shouldShowCoverIcon()) return;
 
-        text = "Difficulty: ";
+        text = "Trudność: ";
         switch (state.difficulty) {
             case Difficulty::NoDifficultySettings:
             {

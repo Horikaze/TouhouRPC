@@ -109,6 +109,7 @@ void startDisplay() {
     ios_base::sync_with_stdio(false);
     cout << "TouhouRPC - Discord Rich Presence status for Touhou games - Version " << VERSION << "\n"
         << "Available on GitHub: https://www.github.com/TheBakaRem/TouhouRPC\n"
+        << "Polish translation by Horikaze on GitHub: https://www.github.com/Horikaze/TouhouRPC\n"
         << "Copyright (C) 2020-2024  TheBakaRem\n"
         << "Licensed under the GNU General Public License v3.0. This program comes with ABSOLUTELY NO WARRANTY; for details see the LICENSE file.\n"
         << "This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License.\n"
